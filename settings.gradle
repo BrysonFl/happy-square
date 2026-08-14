@@ -1,0 +1,6 @@
+rootProject.name = 'happy-square'
+include 'jesus'
+include 'luigi'
+include 'alejo'
+include 'bryson'
+include 'nicolas'
