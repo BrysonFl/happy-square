@@ -1,9 +1,23 @@
 package utilities;
 
+/**
+ * <p>Clase utilitaria que nos permite contener todos los métodos de los cálculos e impresiones en consola</p>
+ * @author Bryson Florez Estudiante de Ingeniería de Sistemas y Computación
+ *
+ */
 public class Util {
 
     private static int lastPosition = 0;
 
+    /**
+     * Constructor privado para evitar la instaciación de esta clase, es una clase helper con métodos estaticos
+     */
+    private Util() {}
+
+    /**
+     * Este método nos permite realizar la impresión en consola de los valores de la matriz, esto con el fin de que el usuario pueda tener un acceso visual de lo que se construyó manual o automáticamente
+     * @param square Matriz en el que se encuentran todos los valores y se mostrarán en consola
+     */
     public static void printSquareElements(int[][] square) {
         System.out.println("\nLos elementos en el cuadrado son:");
         for (int[] row : square) {
@@ -14,6 +28,11 @@ public class Util {
         }
     }
 
+    /**
+     * Este método nos permite generar la suma de cada fila y adicionalmente agregar a un arreglo el resultado de cada fila
+     * @param square Matriz en el que se encuentran todos los valores con los que se realizará la suma de cada fila
+     * @param result Arreglo en el que se guardará el resultado de las sumas de cada fila
+     */
     public static void generateRowSum(int[][] square, int[] result) {
         int rowSum = 0;
 
@@ -27,6 +46,11 @@ public class Util {
         }
     }
 
+    /**
+     * Este método nos permite generar la suma de cada columna y adicionalmente agregar a un arreglo el resultado de cada fila
+     * @param square Matriz en el que se encuentran todos los valores con los que se realizará la suma de cada columna
+     * @param result Arreglo en el que se guardará el resultado de las sumas de cada columna
+     */
     public static void generateColSum(int[][] square, int[] result) {
         int colSum = 0;
 
@@ -40,6 +64,11 @@ public class Util {
         }
     }
 
+    /**
+     * Este método nos permite generar la suma de la diagonal principal y adicionalmente agregar a un arreglo el resultado de cada fila
+     * @param square Matriz en el que se encuentran todos los valores con los que se realizará la suma de la diagonal principal
+     * @param result Arreglo en el que se guardará el resultado de la suma de la diagonal principal
+     */
     public static void generatePrincipalDiagonalSum(int[][] square, int[] result) {
         int principalDiagonalSum = 0;
 
@@ -50,6 +79,11 @@ public class Util {
         result[lastPosition++] = principalDiagonalSum;
     }
 
+    /**
+     * Este método nos permite generar la suma de la diagonal secundaria y adicionalmente agregar a un arreglo el resultado de cada fila
+     * @param square Matriz en el que se encuentran todos los valores con los que se realizará la suma de la diagonal secundaria
+     * @param result Arreglo en el que se guardará el resultado de la suma de la diagonal secundaria
+     */
     public static void generateSecondaryDiagonalSum(int[][] square, int[] result) {
         int secondaryDiagonalSum = 0;
 
@@ -60,6 +94,10 @@ public class Util {
         result[lastPosition] = secondaryDiagonalSum;
     }
 
+    /**
+     * Permite validar que todos los valores generados en las sumas de las filas, columnas y diagonales sean iguales, si es así este será un cuadrado feliz, de lo contrario no lo será
+     * @param result Arreglo en el que se encuentran todos los resultados de las sumas de las filas, columnas y diagonales, se usa para validar cada valor
+     */
     public static void validateHappySquare(int[] result) {
         boolean isHappySquare = false;
 
@@ -75,6 +113,11 @@ public class Util {
         printResult(isHappySquare, result);
     }
 
+    /**
+     * Permite imprimir en consola todos los valores contenidos en el arreglo de resultados y validamos si es un cuadrado feliz o no
+     * @param isHappySquare Variable pasado como argumento para saber si todos los valores de el arreglo result son iguales o diferentes
+     * @param result Arreglo en el que se encuentran todos los resultados de las sumas de las filas, columnas y diagonales
+     */
     public static void printResult(boolean isHappySquare, int[] result) {
         System.out.println("\nEl resultado de las sumas de las filas, las columnas y las diagonales son: ");
         for (int i : result)
